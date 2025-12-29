@@ -3,7 +3,7 @@ const path = require("path");
 
 exports.handler = async () => {
   try {
-    const filePath = path.join(__dirname, "lista.txt");
+    const filePath = path.join(__dirname, "..", "..", "lista.txt");
     const data = fs.readFileSync(filePath, "utf8");
 
     const linhas = data.split("\n");
