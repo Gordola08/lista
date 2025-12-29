@@ -1,4 +1,2 @@
-[[redirects]]
-  from = "/canais"
-  to = "/.netlify/functions/lista"
-  status = 200
+[build]
+  functions = "netlify/functions"
