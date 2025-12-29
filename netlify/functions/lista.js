@@ -3,7 +3,9 @@ const path = require("path");
 
 exports.handler = async () => {
   try {
+    console.log("__dirname:", __dirname);
     const filePath = path.resolve(__dirname, "lista.txt");
+    console.log("filePath:", filePath);
     const data = fs.readFileSync(filePath, "utf8");
 
     const linhas = data.split("\n");
