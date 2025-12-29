@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/canais"
+  to = "/.netlify/functions/lista"
+  status = 200

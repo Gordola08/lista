@@ -1,0 +1,9 @@
+{
+  "name": "api-canais",
+  "version": "1.0.0",
+  "description": "API para servir lista de canais em M3U",
+  "main": "netlify/functions/lista.js",
+  "scripts": {
+    "test": "node test.js"
+  }
+}
