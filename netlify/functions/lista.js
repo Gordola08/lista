@@ -3,7 +3,7 @@ const path = require("path");
 
 exports.handler = async () => {
   try {
-    const filePath = path.join(__dirname, "..", "..", "lista.txt");
+    const filePath = path.resolve(__dirname, "lista.txt");
     const data = fs.readFileSync(filePath, "utf8");
 
     const linhas = data.split("\n");
@@ -21,22 +21,7 @@ exports.handler = async () => {
       }
     }
 
-    // 2. Testa quais canais estão funcionando (Status Check)
-    // Nota: Testar todos de uma vez pode ser lento. Aqui testamos os primeiros 10 para exemplo.
-    const resultados = await Promise.all(
-      todosCanais.map(async (canal) => {
-        try {
-          // Faz uma requisição rápida (timeout de 2 segundos) para ver se o link responde
-          const response = await fetch(canal.url, { method: 'HEAD', signal: AbortSignal.timeout(2000) });
-          return { 
-            ...canal, 
-            status: response.ok ? "Online" : "Offline" 
-          };
-        } catch (err) {
-          return { ...canal, status: "Offline" };
-        }
-      })
-    );
+    const resultados = todosCanais;
 
     // Formata como M3U
     let m3uContent = "#EXTM3U\n";
