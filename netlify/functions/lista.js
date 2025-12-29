@@ -54,9 +54,10 @@ exports.handler = async () => {
       body: m3uContent
     };
   } catch (error) {
+    console.error(error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Erro ao processar lista" })
+      body: JSON.stringify({ error: error.message })
     };
   }
 };
